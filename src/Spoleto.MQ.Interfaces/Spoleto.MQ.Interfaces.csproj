@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<AssemblyName>Spoleto.MQ.Interfaces</AssemblyName>
+		<RootNamespace>Spoleto.MQ.Interfaces</RootNamespace>
+		<Title>Spoleto.MQ.Interfaces</Title>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<DocumentationFile>bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<LangVersion>preview</LangVersion>
+	</PropertyGroup>
+
+	<!-- Include symbols for debugging -->
+	<PropertyGroup>
+		<!-- This command creates external file (snupkg) with .pdb next to nuget file (nupkg) -->
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<!-- Package info -->
+	<PropertyGroup>
+		<Product>Spoleto.MQ.Interfaces library</Product>
+		<Description>SPOLETO message-broker based on RabbitMQ.</Description>
+		<PackageId>Spoleto.MQ.Interfaces</PackageId>
+		<Authors>OlegNadymov;Spoleto-Software</Authors>
+		<Company>SPOLETO Software Development</Company>
+		<PackageIcon>MainIcon.jpg</PackageIcon>
+		<PackageProjectUrl>https://spoleto.ru</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/spoleto-software/Spoleto.MQ.Interfaces</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageTags>RabbitMQ; Rabbit; MQ; EasyNetQ; Message-broker</PackageTags>
+		<Copyright>Copyright © $([System.DateTime]::Now.Year.ToString())</Copyright>
+		<PackageReleaseNotes></PackageReleaseNotes>
+		<Version>$([System.DateTime]::Now.AddYears(-2021).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</Version>
+		<AssemblyVersion>$([System.DateTime]::Now.AddYears(-2021).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</AssemblyVersion>
+		<FileVersion>$([System.DateTime]::Now.AddYears(-2021).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</FileVersion>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="Resources\MainIcon.jpg">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+</Project>

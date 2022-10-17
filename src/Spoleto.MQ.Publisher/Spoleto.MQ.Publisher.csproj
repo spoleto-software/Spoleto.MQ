@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+      <AssemblyName>Spoleto.MQ.Publisher</AssemblyName>
+      <PackageId>Spoleto.MQ.Publisher</PackageId>
+      <RootNamespace>Spoleto.MQ.Publisher</RootNamespace>
+      <Product>Spoleto.MQ.Publisher library</Product>
+      <Description>Spoleto.MQ.Publisher library.
+Библиотека для отправки сообщений в очередь на основе RabbitMQ.
+Два варианта отправки:
+1. EasyRabbitPublisher - паттерн Publish/Subscribe
+2. EasyRabbitSender - паттерн Send/Receive.
+      </Description>
+      <Authors>Cashmere developers.</Authors>
+      <Company>Cashmere soft.</Company>
+      <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+      <Copyright>Copyright © $([System.DateTime]::Now.Year.ToString())</Copyright>
+      <DocumentationFile>bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
+      <Version>$([System.DateTime]::Now.AddYears(-2021).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</Version>
+      <AssemblyVersion>$([System.DateTime]::Now.AddYears(-2021).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</AssemblyVersion>
+      <FileVersion>$([System.DateTime]::Now.AddYears(-2021).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</FileVersion>
+      <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <!-- Include symbols for debugging -->
+  <PropertyGroup>
+      <!-- This command creates external file (snupkg) with .pdb next to nuget file (nupkg) -->
+      <IncludeSymbols>true</IncludeSymbols>
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+      <!-- This command includes .pdb into nuget file (nupkg) -->
+      <!--<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EasyNetQ" Version="6.3.1" />
+  </ItemGroup>
+
+    <!-- В режиме Debug подключаем базовый проект как обычную project зависимость (для удобного дебага) -->
+    <ItemGroup Condition="'$(Configuration)'=='Debug'">
+        <ProjectReference Include="..\Spoleto.MQ\Spoleto.MQ.csproj" />
+    </ItemGroup>
+
+    <!-- В режиме Release подключаем базовый проект как nuget зависимость (для правильного построения зависимостей в файле-описании этого nuget пакета) -->
+    <ItemGroup Condition="'$(Configuration)'=='Release'">
+        <PackageReference Include="Spoleto.MQ" Version="*" />
+    </ItemGroup>
+
+</Project>
