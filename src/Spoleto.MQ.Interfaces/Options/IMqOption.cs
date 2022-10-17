@@ -1,5 +1,8 @@
 ﻿namespace Spoleto.MQ.Options
 {
+    /// <summary>
+    /// The MQ options.
+    /// </summary>
     public interface IMqOption
     {
         string Host { get; set; }

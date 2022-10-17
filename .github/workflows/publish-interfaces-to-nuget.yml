@@ -25,10 +25,10 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore src/Spoleto.MQ.Interfaces/Spoleto.MQ.Interfaces.csproj
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build src/Spoleto.MQ.Interfaces/Spoleto.MQ.Interfaces.csproj --configuration Release --no-restore
 
     - name: Publish to Nuget
       uses: alirezanet/publish-nuget@v3.0.4
