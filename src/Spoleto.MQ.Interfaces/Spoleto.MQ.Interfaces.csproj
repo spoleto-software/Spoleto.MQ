@@ -28,7 +28,7 @@
 		<Company>SPOLETO Software Development</Company>
 		<PackageIcon>MainIcon.jpg</PackageIcon>
 		<PackageProjectUrl>https://spoleto.ru</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/spoleto-software/Spoleto.MQ.Interfaces</RepositoryUrl>
+		<RepositoryUrl>https://github.com/spoleto-software/Spoleto.MQ</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageTags>RabbitMQ; Rabbit; MQ; EasyNetQ; Message-broker</PackageTags>

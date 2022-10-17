@@ -1,3 +1,3 @@
-# Spoleto.MQ.Interfaces
+# Spoleto.MQ
 
 SPOLETO message-broker based on RabbitMQ.
