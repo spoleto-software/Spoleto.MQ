@@ -13,11 +13,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		src\.editorconfig = src\.editorconfig
 		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkFlow", "WorkFlow", "{A28826A9-A0FC-409A-A6B7-FF12E23AD538}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\publish-interfaces-to-nuget.yml = .github\workflows\publish-interfaces-to-nuget.yml
+		.github\workflows\publish-publisher-to-nuget.yml = .github\workflows\publish-publisher-to-nuget.yml
+		.github\workflows\publish-subscriber-to-nuget.yml = .github\workflows\publish-subscriber-to-nuget.yml
 	EndProjectSection
 EndProject
 Global
