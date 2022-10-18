@@ -3,25 +3,12 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <AssemblyName>Spoleto.MQ.Subscriber</AssemblyName>
-        <PackageId>Spoleto.MQ.Subscriber</PackageId>
         <RootNamespace>Spoleto.MQ.Subscriber</RootNamespace>
-        <Product>Spoleto.MQ.Subscriber library</Product>
-        <Description>
-            Spoleto.MQ.Subscriber library.
-            Библиотека для получения сообщений из очереди на основе RabbitMQ.
-            Два варианта получения:
-            1. EasyRabbitSubscriber - паттерн Publish/Subscribe
-            2. EasyRabbitReceiver - паттерн Send/Receive.
-        </Description>
-        <Authors>Cashmere developers.</Authors>
-        <Company>Cashmere soft.</Company>
-        <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-        <Copyright>Copyright © $([System.DateTime]::Now.Year.ToString())</Copyright>
+        <Title>Spoleto.MQ.Subscriber</Title>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <DocumentationFile>bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
-        <Version>$([System.DateTime]::Now.AddYears(-2021).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</Version>
-        <AssemblyVersion>$([System.DateTime]::Now.AddYears(-2021).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</AssemblyVersion>
-        <FileVersion>$([System.DateTime]::Now.AddYears(-2021).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</FileVersion>
-        <LangVersion>latest</LangVersion>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <LangVersion>preview</LangVersion>
     </PropertyGroup>
 
     <!-- Include symbols for debugging -->
@@ -29,20 +16,40 @@
         <!-- This command creates external file (snupkg) with .pdb next to nuget file (nupkg) -->
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        <!-- This command includes .pdb into nuget file (nupkg) -->
-        <!--<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>-->
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <!-- Package info -->
+    <PropertyGroup>
+        <Product>Spoleto.MQ.Subscriber library</Product>
+        <Description>SPOLETO message-broker based on RabbitMQ. The library for receiving messages from a queue based on RabbitMQ.</Description>
+        <PackageId>Spoleto.MQ.Subscriber</PackageId>
+        <Authors>OlegNadymov;Spoleto-Software</Authors>
+        <Company>SPOLETO Software Development</Company>
+        <PackageIcon>MainIcon.jpg</PackageIcon>
+        <PackageProjectUrl>https://spoleto.ru</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/spoleto-software/Spoleto.MQ</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageTags>RabbitMQ; Rabbit; MQ; EasyNetQ; Message-broker; Publish-Subscribe; Send-Receive</PackageTags>
+        <Copyright>Copyright © $([System.DateTime]::Now.Year.ToString())</Copyright>
+        <PackageReleaseNotes></PackageReleaseNotes>
+        <Version>$([System.DateTime]::Now.AddYears(-2021).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</Version>
+        <AssemblyVersion>$([System.DateTime]::Now.AddYears(-2021).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</AssemblyVersion>
+        <FileVersion>$([System.DateTime]::Now.AddYears(-2021).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</FileVersion>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="EasyNetQ" Version="6.3.1" />
-        <PackageReference Include="Spoleto.MQ.Interfaces" Version="1.10.17.1451" />
+        <None Include="Resources\MainIcon.jpg">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
     </ItemGroup>
 
-    <!-- В режиме Debug подключаем базовый проект как обычную project зависимость (для удобного дебага) -->
-
-    <!-- В режиме Release подключаем базовый проект как nuget зависимость (для правильного построения зависимостей в файле-описании этого nuget пакета) -->
-    <ItemGroup Condition="'$(Configuration)'=='Release'">
-        <PackageReference Include="Spoleto.MQ" Version="*" />
+    <ItemGroup>
+        <PackageReference Include="EasyNetQ" Version="6.3.1" />
+        <PackageReference Include="Spoleto.MQ.Interfaces" Version="1.10.18.1210" />
     </ItemGroup>
 
 </Project>
