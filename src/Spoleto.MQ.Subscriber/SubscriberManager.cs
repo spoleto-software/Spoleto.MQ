@@ -12,7 +12,7 @@ namespace Spoleto.MQ.Subscriber
     public static class SubscriberManager
     {
         private static readonly Dictionary<Type, ISubscriber> _activeSubscriptions = new Dictionary<Type, ISubscriber>();
-        private static readonly Dictionary<Type, IReceiver> _activeReceivers = new Dictionary<Type, IReceiver>();
+        private static readonly Dictionary<string, IReceiver> _activeReceivers = new Dictionary<string, IReceiver>();
         private static IMqOption _settings;
         private static EasyRabbitSubscribeService _subscriberService;
 
@@ -53,9 +53,11 @@ namespace Spoleto.MQ.Subscriber
         {
             CheckIfInitiliazed();
 
-            if (!_activeReceivers.TryGetValue(typeof(T), out var receiver))
+            var key = $"{typeof(T)}_{uniqueQueueName}";
+
+            if (!_activeReceivers.TryGetValue(key, out var receiver))
             {
-                receiver = _activeReceivers[typeof(T)] = new EasyRabbitReceiver<T>(_subscriberService, uniqueQueueName);
+                receiver = _activeReceivers[key] = new EasyRabbitReceiver<T>(_subscriberService, uniqueQueueName);
                 receiver.Receive();
             }
 
